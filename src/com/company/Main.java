@@ -25,10 +25,6 @@ public class Main {
             thisGame.add(colorValues.get(two));
             thisGame.add(colorValues.get(three));
             thisGame.add(colorValues.get(four));
-           // thisGame.add("");
-            //thisGame.add("1");
-            //thisGame.add("2");
-            //thisGame.add("3");
             System.out.println(thisGame);
 int colpos = 0;
             for (int i = 0; i < 12; i++) {
