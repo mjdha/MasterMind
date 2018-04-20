@@ -26,12 +26,12 @@ public class Main {
             thisGame.add(colorValues.get(three));
             thisGame.add(colorValues.get(four));
             System.out.println(thisGame);
-int colpos = 0;
+            int colpos = 0;
             for (int i = 0; i < 12; i++) {
-                 colpos = logic(thisGame,dataentry(colorValues));
-             if (colpos == 4){
-                 break;
-             }
+                colpos = logic(thisGame, dataentry(colorValues));
+                if (colpos == 4) {
+                    break;
+                }
             }
             System.out.println(colpos);
 
@@ -51,7 +51,7 @@ int colpos = 0;
     }
 
     public static ArrayList<String> dataentry(ArrayList<String> colors) {
-        ArrayList<String> userin = new ArrayList<>(Arrays.asList("", "", "", "","","",""));
+        ArrayList<String> userin = new ArrayList<>(Arrays.asList("", "", "", "", "", "", ""));
 
         Scanner input = new Scanner(System.in);
         for (int i = 0; i < 4; i++) {
@@ -61,9 +61,9 @@ int colpos = 0;
                 System.out.println("Please enter color " + colornum);
                 userin.set(i, input.nextLine());
             }
-        userin.set(4,"1");
-            userin.set(5,"2");
-            userin.set(6,"3");
+            userin.set(4, "1");
+            userin.set(5, "2");
+            userin.set(6, "3");
         }
         return userin;
     }
