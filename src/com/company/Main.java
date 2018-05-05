@@ -51,7 +51,7 @@ public class Main {
     }
 
     public static ArrayList<String> dataentry(ArrayList<String> colors) {
-        ArrayList<String> userin = new ArrayList<>(Arrays.asList("", "", "", "", "", "", ""));
+        ArrayList<String> userin = new ArrayList<>(Arrays.asList("", "", "", ""));
 
         Scanner input = new Scanner(System.in);
         for (int i = 0; i < 4; i++) {
@@ -61,9 +61,6 @@ public class Main {
                 System.out.println("Please enter color " + colornum);
                 userin.set(i, input.nextLine());
             }
-            userin.set(4, "1");
-            userin.set(5, "2");
-            userin.set(6, "3");
         }
         return userin;
     }
@@ -71,20 +68,24 @@ public class Main {
     public static int logic(ArrayList<String> game, ArrayList<String> user) {
         int col = 0;
         int colpos = 0;
-        ArrayList<String> unique = removeDuplicates(user);
-        for (String element : unique) {
-        }
+        boolean[] checked = new boolean[game.size()];
         for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < user.size(); j++) {
+                if (game.get(i).equalsIgnoreCase(user.get(i)) && !checked[i]) {
+                    colpos += 1;
+                    checked[j] = true;
+                }
 
-            if (game.get(i).equalsIgnoreCase(user.get(i))) {
-                colpos += 1;
-            }
-            if (game.contains(unique.get(i))) {
-                col += 1;
+                if (game.get(i).equalsIgnoreCase(user.get(j)) && !checked[i]) {
+                    col += 1;
+                    checked[i] = true;
+                }
 
             }
 
         }
+
+
         System.out.println("correct color and position : " + colpos);
         System.out.println("colors that exist :" + col);
         return colpos;
@@ -101,24 +102,5 @@ public class Main {
     }
 
 
-    static ArrayList<String> removeDuplicates(ArrayList<String> list) {
-
-        // Store unique items in result.
-        ArrayList<String> result = new ArrayList<>();
-
-        // Record encountered Strings in HashSet.
-        HashSet<String> set = new HashSet<>();
-
-        // Loop over argument list.
-        for (String item : list) {
-
-            // If String is not in set, add it to the list and the set.
-            if (!set.contains(item)) {
-                result.add(item);
-                set.add(item);
-            }
-        }
-        return result;
-    }
 }
 
